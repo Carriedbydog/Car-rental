@@ -31,7 +31,7 @@ const CarList = () => {
   };
   return (
     <>
-      <div className="mt-16 mx-4 md:mx-auto max-w-[calc(100vw-12rem)]">
+      <div className="mt-16 mx-4 md:mx-auto max-w-[calc(100vw-12rem)] mb-[100px]">
         {loading && <h1 className="text-2xl">Loading...</h1>}
         {error && <h1 className="text-2xl">Something went wrong...😢</h1>}
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -40,7 +40,7 @@ const CarList = () => {
           ))}
         </ul>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-[100px]">
         {cars.length !== 32 && (
           <button
             className="w-20 h-10 text-blue-600"
