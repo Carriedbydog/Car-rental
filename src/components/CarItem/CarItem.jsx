@@ -1,16 +1,11 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addToFavoritesThunk } from 'redux/carRental/operations';
 import { Heart } from 'lucide-react';
+import { useSelector } from 'react-redux';
+import { selectFavorites } from 'redux/carRental/selectors';
 
-const CarItem = ({ car }) => {
-  const dispatch = useDispatch();
-  const handleAddToFav = id => {
-    dispatch(addToFavoritesThunk(id));
-  };
-
-  const splitAddress = car.address.split(',');
-  const town = splitAddress[1].trim();
+const CarItem = ({ car, handleAddToFav }) => {
+  const favoriteCars = useSelector(selectFavorites);
+  const town = car.address ? car.address.split(',')[1].trim() : '';
+  const isFav = favoriteCars.some(fav => fav.id === car.id);
 
   return (
     <li className="relative max-w-[275px] h-[440px] shadow-md rounded-lg flex flex-col">
@@ -20,10 +15,14 @@ const CarItem = ({ car }) => {
         className=" rounded-lg object-cover mb-[14px] h-[280px] transition-transform duration-1000 hover:scale-110 "
       />
       <button
-        onClick={() => handleAddToFav(car.id)}
+        onClick={() => handleAddToFav(car.id, isFav)}
         className="absolute top-5 right-5 p-0 border-none bg-transparent"
       >
-        <Heart size={20} color="#ffffff" />
+        <Heart
+          size={20}
+          fill={isFav ? '#3470FF' : 'none'}
+          color={isFav ? '#3470FF' : 'white'}
+        />
       </button>
       <div className="p-5 ">
         <div className="flex justify-between items-baseline mb-[8px]">
@@ -36,7 +35,7 @@ const CarItem = ({ car }) => {
         <div className="mb-[28px]">
           <p className="text-gray-500 text-[12px] font-normal">
             {town} | Ukraine | {car.rentalCompany} | {car.type} | {car.make} |{' '}
-            {car.mileage} | {car.accessories[1]}
+            {car.mileage} | {car.accessories ? car.accessories[1] : ''}
           </p>
         </div>
         <div className="flex flex-grow items-end">

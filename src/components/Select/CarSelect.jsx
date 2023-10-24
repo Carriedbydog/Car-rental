@@ -7,9 +7,7 @@ const CarSelect = () => {
         <span className="label-text">Car brand</span>
       </label>
       <select className="select select-bordered  bg-slate-50">
-        <option disabled selected>
-          Enter the text
-        </option>
+        <option disabled>Enter the text</option>
         <option>Star Wars</option>
         <option>Harry Potter</option>
         <option>Lord of the Rings</option>
