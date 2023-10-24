@@ -2,6 +2,41 @@ import React from 'react';
 
 export const LearnMore = ({ car }) => {
   const town = car.address ? car.address.split(',')[1].trim() : '';
+  const oldRentalConditions = car.rentalConditions;
+  const newRentalConditions = oldRentalConditions.split('\n');
+  const styledConditions = newRentalConditions.map((condition, index) => {
+    if (index === 0) {
+      const match = condition.match(/(\d+)/);
+      if (match) {
+        const age = match[0];
+        const parts = condition.split(age);
+        return (
+          <p
+            key={index}
+            className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100"
+          >
+            {parts[0]}
+            <span className="text-blue-500 font-bold">{age}</span>
+            {parts[1]}
+          </p>
+        );
+      }
+    } else {
+      return (
+        <p
+          key={index}
+          className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100"
+        >
+          {condition}
+        </p>
+      );
+    }
+    return null;
+  });
+  const carMileage = car.mileage
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
   return (
     <>
       <img
@@ -19,7 +54,7 @@ export const LearnMore = ({ car }) => {
               </h3>
             </div>
             <div className="">
-              <p className="text-gray-600 text-[12px] font-normal leading-[18px]">
+              <p className="text-gray-500 text-[12px] font-normal leading-[18px]">
                 {town} | Ukraine | Id: {car.id} | Year: {car.year} | Type:{' '}
                 {car.type} | Fuel Consumption: {car.fuelConsumption} | Engine
                 Size: {car.engineSize}
@@ -34,13 +69,14 @@ export const LearnMore = ({ car }) => {
           <h3 className="mb-[8px] leading-[20px] font-semibold text-black text-[14px]">
             Accessories and functionalities:
           </h3>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap gap-1">
             {car.accessories &&
               car.accessories.map((acc, idx) => (
                 <p
                   key={idx}
-                  className="text-gray-600 text-[12px] font-normal leading-[18px]"
+                  className="text-gray-500 text-[12px] font-normal leading-[18px]"
                 >
+                  {idx > 0 && ' | '}
                   {acc}
                 </p>
               ))}
@@ -48,8 +84,9 @@ export const LearnMore = ({ car }) => {
               car.functionalities.map((func, idx) => (
                 <p
                   key={idx}
-                  className="text-gray-600 text-[12px] font-normal leading-[18px]"
+                  className="text-gray-500 text-[12px] font-normal leading-[18px]"
                 >
+                  {idx > 0 && '  |  '}
                   {func}
                 </p>
               ))}
@@ -59,15 +96,15 @@ export const LearnMore = ({ car }) => {
           <h3 className="mb-[8px] leading-[20px] font-semibold text-black text-[14px]">
             Rental Conditions:
           </h3>
-          <div className="flex gap-[8px]">
-            <p className="text-gray-500 text-[12px] font-normal">
-              {car.rentalConditions.split('')}
+          <div className="flex flex-wrap gap-[8px]">
+            {styledConditions}
+            <p className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100">
+              Mileage:{' '}
+              <span className="text-blue-500 font-bold">{carMileage}</span>
             </p>
-            <p className="text-gray-500 text-[12px] font-normal">
-              {car.mileage}
-            </p>
-            <p className="text-gray-500 text-[12px] font-normal">
-              {car.rentalPrice}
+            <p className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100">
+              Price:{' '}
+              <span className="text-blue-500 font-bold">{car.rentalPrice}</span>
             </p>
           </div>
         </div>
