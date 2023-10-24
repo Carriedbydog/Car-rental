@@ -20,7 +20,7 @@ export const loadMoreThunk = createAsyncThunk(
   'loadMore',
   async (page, { rejectWithValue }) => {
     try {
-      const { data } = await carApi.get(`adverts?page=${page}&limit=8`);
+      const { data } = await carApi.get(`adverts?page=${page}&limit=12`);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

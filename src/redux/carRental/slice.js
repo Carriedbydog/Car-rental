@@ -27,7 +27,10 @@ export const slice = createSlice({
         state.cars = payload;
       })
       .addCase(loadMoreThunk.fulfilled, (state, { payload }) => {
-        state.cars.push(...payload);
+        const existingCarIds = state.cars.map(car => car.id);
+        const newCars = payload.filter(car => !existingCarIds.includes(car.id));
+        state.cars.push(...newCars);
+        state.loading = false;
       })
 
       .addMatcher(

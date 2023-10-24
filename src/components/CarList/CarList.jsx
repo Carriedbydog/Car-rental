@@ -41,7 +41,7 @@ const CarList = () => {
         </ul>
       </div>
       <div className="flex justify-center">
-        {cars.length !== 24 && (
+        {cars.length !== 32 && (
           <button
             className="w-20 h-10 text-blue-600"
             onClick={handleBtnLoadMore}

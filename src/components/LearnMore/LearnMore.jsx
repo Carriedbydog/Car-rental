@@ -5,33 +5,30 @@ export const LearnMore = ({ car }) => {
   const oldRentalConditions = car.rentalConditions;
   const newRentalConditions = oldRentalConditions.split('\n');
   const styledConditions = newRentalConditions.map((condition, index) => {
-    if (index === 0) {
-      const match = condition.match(/(\d+)/);
-      if (match) {
-        const age = match[0];
-        const parts = condition.split(age);
-        return (
-          <p
-            key={index}
-            className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100"
-          >
-            {parts[0]}
-            <span className="text-blue-500 font-bold">{age}</span>
-            {parts[1]}
-          </p>
-        );
-      }
+    const match = condition.match(/(\d+)/);
+    if (match) {
+      const age = match[0];
+      const parts = condition.split(age);
+      return (
+        <p
+          key={index}
+          className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-50"
+        >
+          {parts[0]}
+          <span className="text-blue-500 font-bold">{age}</span>
+          {parts[1]}
+        </p>
+      );
     } else {
       return (
         <p
           key={index}
-          className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100"
+          className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-50"
         >
           {condition}
         </p>
       );
     }
-    return null;
   });
   const carMileage = car.mileage
     .toString()
@@ -98,11 +95,11 @@ export const LearnMore = ({ car }) => {
           </h3>
           <div className="flex flex-wrap gap-[8px]">
             {styledConditions}
-            <p className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100">
+            <p className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-50">
               Mileage:{' '}
               <span className="text-blue-500 font-bold">{carMileage}</span>
             </p>
-            <p className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-100">
+            <p className="text-gray-500 text-[12px] leading-[18px] font-normal rounded-[32px] py-[7px] px-[14px] bg-slate-50">
               Price:{' '}
               <span className="text-blue-500 font-bold">{car.rentalPrice}</span>
             </p>

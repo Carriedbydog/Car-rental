@@ -45,7 +45,7 @@ const CarItem = ({ car, handleAddToFav }) => {
         <div className="flex flex-grow items-end">
           <button
             onClick={() => open(car)}
-            className="flex flex-grow justify-center rounded-lg bg-blue-700 p-3 text-white font-semibold text-lg hover:bg-blue-800 transition-colors"
+            className="flex flex-grow justify-center rounded-lg bg-blue-500 p-3 text-white font-semibold text-lg hover:bg-blue-800 transition-colors"
           >
             Learn more
           </button>
