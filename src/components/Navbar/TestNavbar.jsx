@@ -1,4 +1,6 @@
+import React from 'react';
 import { FiMenu } from 'react-icons/fi';
+
 import { NavLink } from 'react-router-dom';
 
 const TestNavbar = () => {
@@ -10,7 +12,6 @@ const TestNavbar = () => {
           <FiMenu style={{ width: '32px', height: '32px' }} />
         </label>
       </div>
-
       <div className="drawer-side z-10">
         <label
           htmlFor="my-drawer"

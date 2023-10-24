@@ -1,5 +1,6 @@
 // import Navbar from 'components/Navbar/Navbar';
-import TestNavbar from 'components/TestNavbar';
+// import ReactProBar from 'components/Navbar/ReactProBar';
+import TestNavbar from 'components/Navbar/TestNavbar';
 import React from 'react';
 
 const Header = () => {
@@ -7,6 +8,7 @@ const Header = () => {
     <>
       {/* <Navbar /> */}
       <TestNavbar />
+      {/* <ReactProBar /> */}
     </>
   );
 };

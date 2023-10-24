@@ -1,9 +1,13 @@
+import { LearnMore } from 'components/LearnMore/LearnMore';
+import { Modal } from 'components/Modal/Modal';
+import { useModal } from 'hooks/useModal';
 import { Heart } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/carRental/selectors';
 
 const CarItem = ({ car, handleAddToFav }) => {
   const favoriteCars = useSelector(selectFavorites);
+  const { open, close, isOpen } = useModal();
   const town = car.address ? car.address.split(',')[1].trim() : '';
   const isFav = favoriteCars.some(fav => fav.id === car.id);
 
@@ -39,11 +43,19 @@ const CarItem = ({ car, handleAddToFav }) => {
           </p>
         </div>
         <div className="flex flex-grow items-end">
-          <button className="flex flex-grow justify-center rounded-lg bg-blue-700 p-3 text-white font-semibold text-lg hover:bg-blue-800 transition-colors">
+          <button
+            onClick={() => open(car)}
+            className="flex flex-grow justify-center rounded-lg bg-blue-700 p-3 text-white font-semibold text-lg hover:bg-blue-800 transition-colors"
+          >
             Learn more
           </button>
         </div>
       </div>
+      {isOpen && (
+        <Modal close={close}>
+          <LearnMore car={car} close={close} />
+        </Modal>
+      )}
     </li>
   );
 };
