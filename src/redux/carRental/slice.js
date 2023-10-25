@@ -1,11 +1,16 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchCarsThunk, loadMoreThunk } from './operations';
+import {
+  fetchAllCarsForFilterThunk,
+  fetchCarsThunk,
+  loadMoreThunk,
+} from './operations';
 
 const initialState = {
   cars: [],
   loading: false,
   error: null,
   favorites: [],
+  filters: [],
 };
 
 export const slice = createSlice({
@@ -26,6 +31,10 @@ export const slice = createSlice({
         state.loading = false;
         state.cars = payload;
       })
+      .addCase(fetchAllCarsForFilterThunk.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.filters = payload;
+      })
       .addCase(loadMoreThunk.fulfilled, (state, { payload }) => {
         const existingCarIds = state.cars.map(car => car.id);
         const newCars = payload.filter(car => !existingCarIds.includes(car.id));
@@ -34,14 +43,22 @@ export const slice = createSlice({
       })
 
       .addMatcher(
-        isAnyOf(fetchCarsThunk.pending, loadMoreThunk.pending),
+        isAnyOf(
+          fetchCarsThunk.pending,
+          loadMoreThunk.pending,
+          fetchAllCarsForFilterThunk.pending
+        ),
         (state, { payload }) => {
           state.loading = true;
           state.error = null;
         }
       )
       .addMatcher(
-        isAnyOf(fetchCarsThunk.rejected, loadMoreThunk.rejected),
+        isAnyOf(
+          fetchCarsThunk.rejected,
+          loadMoreThunk.rejected,
+          fetchAllCarsForFilterThunk.rejected
+        ),
         (state, { payload }) => {
           state.loading = false;
           state.error = payload;

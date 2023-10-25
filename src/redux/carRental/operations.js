@@ -16,6 +16,18 @@ export const fetchCarsThunk = createAsyncThunk(
     }
   }
 );
+
+export const fetchAllCarsForFilterThunk = createAsyncThunk(
+  'fetchAllCarsForFilter',
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await carApi.get('adverts');
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 export const loadMoreThunk = createAsyncThunk(
   'loadMore',
   async (page, { rejectWithValue }) => {

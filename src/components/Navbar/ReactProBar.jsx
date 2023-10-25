@@ -1,30 +1,60 @@
-import React from 'react';
-import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { FiMenu } from 'react-icons/fi';
+import { Swiper, SwiperSlide } from 'swiper/react'; // Import Swiper for React
+import 'swiper/swiper-bundle.css';
+import 'tailwindcss/tailwind.css';
 
 const ReactProBar = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  };
+
   return (
-    <>
-      <Sidebar>
-        <Menu
-          menuItemStyles={{
-            button: {
-              // the active class will be added automatically by react router
-              // so we can use it to style the active menu item
-              [`&.active`]: {
-                backgroundColor: '#13395e',
-                color: '#b6c8d9',
-              },
-            },
-          }}
-        >
-          <MenuItem component={<NavLink to="/" />}> Home</MenuItem>
-          <MenuItem component={<NavLink to="/catalog" />}> Catalog</MenuItem>
-          <MenuItem component={<NavLink to="/favorites" />}>Favorites</MenuItem>
-        </Menu>
-      </Sidebar>
-      ;
-    </>
+    <div className="h-screen bg-gray-200 font-sans">
+      <Swiper
+        className="swiper h-full"
+        slidesPerView="auto"
+        initialSlide={isMenuOpen ? 1 : 0}
+        resistanceRatio={0}
+        slideToClickedSlide
+      >
+        <SwiperSlide className={`menu ${isMenuOpen ? 'block' : 'hidden'}`}>
+          {/* <button className="menu-button" >
+            CLICK
+          </button> */}
+          <div className="drawer-content" onClick={toggleMenu}>
+            <label htmlFor="my-drawer" className="btn btn-blue drawer-button">
+              <FiMenu style={{ width: '32px', height: '32px' }} />
+            </label>
+          </div>
+          {/* <div className="menu-button" onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div> */}
+          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+            <li>
+              <a href="/" className="block p-4 hover:text-teal">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/catalog" className="block p-4 hover:text-teal">
+                Catalog
+              </a>
+            </li>
+            <li>
+              <a href="/favorites" className="block p-4 hover:text-teal">
+                Favorites
+              </a>
+            </li>
+          </ul>
+        </SwiperSlide>
+        <SwiperSlide className="content">KONT</SwiperSlide>
+      </Swiper>
+    </div>
   );
 };
 

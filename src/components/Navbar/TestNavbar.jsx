@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const TestNavbar = () => {
   return (
-    <div className="drawer">
+    <div className="drawer w-0">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <label htmlFor="my-drawer" className="btn btn-blue drawer-button">
