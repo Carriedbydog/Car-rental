@@ -3,10 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarsThunk } from 'redux/carRental/operations';
 import { selectCars } from 'redux/carRental/selectors';
-// import roadForestImage from '../images/road-forest.jpg';
-import cityImage from '../images/city.jpg';
+import roadForestImage from '../images/road-forest.jpg';
 import { NavLink } from 'react-router-dom';
-// import road from '../images/road2.jpg';
 
 const Home = () => {
   const cars = useSelector(selectCars);
@@ -19,7 +17,7 @@ const Home = () => {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage: `url(${cityImage})`,
+          backgroundImage: `url(${roadForestImage})`,
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
