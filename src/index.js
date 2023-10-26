@@ -7,11 +7,14 @@ import { store } from 'redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { Global } from 'styles/Global';
+import { SidebarProvider } from 'components/Сontext/Context';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <BrowserRouter basename="/Car-rental">
-      <App />
+      <SidebarProvider>
+        <App />
+      </SidebarProvider>
       <ToastContainer
         position="top-right"
         autoClose={3000}

@@ -47,7 +47,7 @@ const CarList = () => {
   );
 
   return (
-    <div className="flex flex-col justify-center al m-auto">
+    <div className="flex flex-col justify-center al m-auto p-[30px] min-h-screen">
       <div className="mt-16 mx-4 md:mx-auto max-w-[calc(100vw-12rem)] mb-[100px]">
         {loading && <h1 className="text-2xl">Loading...</h1>}
         {error && <h1 className="text-2xl">Something went wrong...😢</h1>}

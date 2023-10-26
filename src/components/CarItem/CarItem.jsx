@@ -14,7 +14,7 @@ const CarItem = ({ car, handleAddToFav }) => {
   return (
     <li className="relative max-w-[275px] h-[440px] shadow-md rounded-lg flex flex-col">
       <img
-        src={car.img || 'https://demofree.sirv.com/nope-not-here.jpg'}
+        src={car.img ? car.img : 'https://demofree.sirv.com/nope-not-here.jpg'}
         alt={car.model}
         className=" rounded-lg object-cover mb-[14px] h-[280px] transition-transform duration-1000 hover:scale-110 "
       />
@@ -30,11 +30,13 @@ const CarItem = ({ car, handleAddToFav }) => {
       </button>
       <div className="p-5 ">
         <div className="flex justify-between items-baseline mb-[8px]">
-          <h4 className="font-semibold text-[16px] text-gray-900">
+          <h4 className="font-semibold text-[16px] text-black">
             {car.make} <span className="text-blue-700">{car.model},</span>{' '}
             {car.year}
           </h4>
-          <h4 className="text-[16px]">{car.rentalPrice}</h4>
+          <h4 className="text-[16px] text-black font-bold">
+            {car.rentalPrice}
+          </h4>
         </div>
         <div className="mb-[28px]">
           <p className="text-gray-500 text-[12px] font-normal">
