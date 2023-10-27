@@ -1,11 +1,17 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchCarsThunk, loadMoreThunk } from './operations';
+import {
+  fetchCarsThunk,
+  fetchFilteredCarsThunk,
+  loadMoreThunk,
+} from './operations';
 
 const initialState = {
   cars: [],
   loading: false,
   error: null,
   favorites: [],
+  filter: [],
+  criteria: {},
 };
 
 export const slice = createSlice({
@@ -26,11 +32,13 @@ export const slice = createSlice({
         state.loading = false;
         state.cars = payload;
       })
+      .addCase(fetchFilteredCarsThunk.fulfilled, (state, { payload }) => {
+        state.criteria = payload.criteria;
+        state.cars = payload.carsArr;
+      })
       .addCase(loadMoreThunk.fulfilled, (state, { payload }) => {
-        const existingCarIds = state.cars.map(car => car.id);
-        const newCars = payload.filter(car => !existingCarIds.includes(car.id));
-        state.cars.push(...newCars);
         state.loading = false;
+        state.cars.push(...payload);
       })
 
       .addMatcher(

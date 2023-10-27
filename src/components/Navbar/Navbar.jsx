@@ -31,13 +31,13 @@ const Navbar = () => {
             )}
           </label>
         </div>
-        <div className="drawer-side z-10">
+        <div className="drawer-side z-10 ">
           <label
             htmlFor="my-drawer"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-60  min-h-full bg-base-200 text-base-content ">
+          <ul className="menu p-4 w-60  min-h-full bg-base-200 text-base-content  ">
             <img src={logo} alt="logo" />
             <li>
               <NavLink to="/" className="block p-4 hover:text-teal">

@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/a11y';
+import logo from '../../images/logo.png';
 
 const Slider = ({ cars }) => {
   return (
@@ -33,6 +34,9 @@ const Slider = ({ cars }) => {
             className="w-full flex items-center justify-center"
             src={car.img}
             alt={car.make}
+            onError={e => {
+              e.currentTarget.src = logo;
+            }}
           />
         </SwiperSlide>
       ))}

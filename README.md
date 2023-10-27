@@ -1,113 +1,68 @@
-# React homework template
+RENTIFY - Car-rental service
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+# This project was created using [Create React App].
 
-## Создание репозитория по шаблону
+During the project's development, the following libraries were utilized:
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+1. For styling: Toastify, Tailwind, daisyUI, Swiper, Lucide-react, React-icons.
+2. For database operations: Axios, Redux Toolkit.
+3. The back-end was created using the mockApi service (https://mockapi.io).
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## The application consists of three pages:
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+**Home**: The home page features a swiper for showcasing some available cars. It
+includes the site's name and a brief description.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+**Catalog**: On the Catalog page, users can choose from 12 cars. Clicking the
+"Load more" button loads an additional 12 cars. The page also provides filtering
+options based on three categories (Car brand, Price/1 hour, Car mileage/km).
+Users can select their desired car brand, price, and car mileage using these
+filters. Each car card displays a brief description and a photo. If users want
+to learn more about a specific car, clicking the "Learn More" button opens a
+modal window with more detailed information about the car. Most importantly, the
+modal window features a "Rental car" button, allowing users to contact the
+company and book the car. Each car card also includes a heart-shaped button that
+allows users to add the car to their favorites.
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+**Favorites**: The Favorites page automatically displays the cars that users
+have selected as favorites. Users can manage this list (remove cars from
+favorites). By clicking "Load more," users can view more detailed information
+and make a car reservation.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+A sidebar menu is available on each page for quick site navigation.
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+<!-- Ukrainian -->
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+Цей проект був створений за допомогою Create React App.
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
+Під час розробки проекту були використані такі бібліотеки:
 
-## Подготовка к работе
+1. Для стилізації: Toastify, Tailwind, daisyUI, Swiper, Lucide-react,
+   React-icons.
+2. Для операцій з базою даних: Axios, Redux Toolkit.
+3. Бек-енд був створений за допомогою сервісу mockApi (https://mockapi.io).
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+Додаток складається з трьох сторінок:
 
-## Деплой
+**Home**: На головній сторінці розміщений слайдер для відображення деяких
+доступних автомобілів. Тут є назва сайту і короткий опис.
 
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+**Catalog**: На сторінці Каталог користувачі можуть вибрати із 12 автомобілів.
+Натискання кнопки "Завантажити ще" завантажує ще 12 автомобілів. Сторінка також
+надає можливість фільтрувати за трьома категоріями (Марка автомобіля, Ціна за 1
+годину, Пробіг автомобіля км). Користувачі можуть вибрати бажану марку
+автомобіля, ціну і пробіг автомобіля за допомогою цих фільтрів. Кожна картка
+автомобіля відображає короткий опис та фотографію. Якщо користувачі хочуть
+дізнатися більше про певний автомобіль, натискання кнопки "Докладніше" відкриває
+модальне вікно з більш докладною інформацією про автомобіль. Найголовніше, в
+модальному вікні є кнопка "Оренда автомобіля", що дозволяє користувачам
+зв'язатися з компанією та забронювати автомобіль. Кожна картка автомобіля також
+містить кнопку у формі серця, що дозволяє користувачам додавати автомобіль до
+обраних.
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+**Favorites**: На сторінці Обране автоматично відображаються автомобілі, які
+користувачі вибрали у вибране. Користувачі можуть керувати цим списком (видаляти
+автомобілі з обраних). Натисканням "Завантажити ще" користувачі можуть
+переглядати більш докладну інформацію і робити бронювання автомобіля.
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+Кожна сторінка має бічне меню для швидкої навігації по сайту.

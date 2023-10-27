@@ -5,3 +5,11 @@
 .active {
   color: blue;
 }
+
+.css-13cymwt-control {
+  @apply bg-slate-50 border-none  font-medium text-[18px] h-[48px] rounded-[14px] !important;
+}
+
+.css-1u9des2-indicatorSeparator {
+  @apply w-0 !important;
+}

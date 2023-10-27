@@ -13,15 +13,14 @@ const CarItem = ({ car, handleAddToFav }) => {
   const isFav = favoriteCars.some(fav => fav.id === car.id);
 
   return (
-    <li className="relative max-w-[275px] h-[440px] shadow-md rounded-lg flex flex-col">
+    <li className="relative  shadow-md rounded-lg flex flex-col justify-between">
       <img
-        // src={car.img === 'Status Code:401' ? logo : car.img}
         src={car.img}
         alt={car.model}
         onError={e => {
           e.currentTarget.src = logo;
         }}
-        className=" rounded-lg object-cover mb-[14px] h-[280px] transition-transform duration-1000 hover:scale-110 "
+        className=" rounded-lg object-cover mb-[14px] min-h-[270px] transition-transform duration-1000 hover:scale-105 "
       />
       <button
         onClick={() => handleAddToFav(car.id, isFav)}
