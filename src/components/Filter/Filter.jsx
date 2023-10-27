@@ -14,35 +14,35 @@ const Filter = () => {
   const make = [
     { value: 'All', label: 'All' },
     { value: 'Audi', label: 'Audi' },
-    { value: 'BMW', label: 'BMW' },
-    { value: 'Mercedes-Benz', label: 'Mercedes-Benz' },
-    { value: 'Buick', label: 'Buick' },
-    { value: 'Volvo', label: 'Volvo' },
-    { value: 'HUMMER', label: 'HUMMER' },
-    { value: 'Subaru', label: 'Subaru' },
-    { value: 'Mitsubishi', label: 'Mitsubishi' },
-    { value: 'Nissan', label: 'Nissan' },
-    { value: 'Lincoln', label: 'Lincoln' },
-    { value: 'GMC', label: 'GMC' },
-    { value: 'Hyundai', label: 'Hyundai' },
-    { value: 'MINI', label: 'MINI' },
-    { value: 'Bentley', label: 'Bentley' },
     { value: 'Aston', label: 'Aston Martin' },
-    { value: 'Pontiac', label: 'Pontiac' },
-    { value: 'Lamborghini', label: 'Lamborghini' },
+    { value: 'BMW', label: 'BMW' },
+    { value: 'Buick', label: 'Buick' },
+    { value: 'Bentley', label: 'Bentley' },
     { value: 'Chrysler', label: 'Chrysler' },
-    { value: 'Kia', label: 'Kia' },
-    { value: 'Land Rover', label: 'Land Rover' },
-    { value: 'Toyota', label: 'Toyota' },
     { value: 'Chevrolet', label: 'Chevrolet' },
-    { value: 'Lexus', label: 'Lexus' },
     { value: 'Ford', label: 'Ford' },
+    { value: 'GMC', label: 'GMC' },
+    { value: 'Mercedes-Benz', label: 'Mercedes-Benz' },
+    { value: 'HUMMER', label: 'HUMMER' },
+    { value: 'Hyundai', label: 'Hyundai' },
+    { value: 'Kia', label: 'Kia' },
+    { value: 'Lincoln', label: 'Lincoln' },
+    { value: 'Lamborghini', label: 'Lamborghini' },
+    { value: 'Land Rover', label: 'Land Rover' },
+    { value: 'Lexus', label: 'Lexus' },
+    { value: 'Mitsubishi', label: 'Mitsubishi' },
+    { value: 'MINI', label: 'MINI' },
+    { value: 'Nissan', label: 'Nissan' },
+    { value: 'Pontiac', label: 'Pontiac' },
     { value: 'Porsche', label: 'Porsche' },
+    { value: 'Subaru', label: 'Subaru' },
+    { value: 'Toyota', label: 'Toyota' },
+    { value: 'Volvo', label: 'Volvo' },
   ];
 
   const price = [];
 
-  for (let value = 0; value <= 500; value += 10) {
+  for (let value = 10; value <= 500; value += 10) {
     price.push({ value: value.toString(), label: value.toString() });
   }
 
@@ -62,6 +62,11 @@ const Filter = () => {
     } else {
       toast.error('No cars found');
     }
+
+    setSelectedCar(null);
+    setSelectedPrice(null);
+    setMileageFrom('');
+    setMileageTo('');
   };
   const customStyle = {
     dropdownIndicator: (base, state) => ({
@@ -86,6 +91,7 @@ const Filter = () => {
           options={make}
           onChange={option => setSelectedCar(option)}
           value={selectedCar}
+          isClearable={true}
         />
       </div>
       <div className="max-w-[125px] w-full">
@@ -98,6 +104,7 @@ const Filter = () => {
           onChange={option => setSelectedPrice(option)}
           options={price}
           placeholder="To $"
+          isClearable={true}
         />
       </div>
       <div>

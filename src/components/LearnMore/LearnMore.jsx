@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../images/logo.png';
 
 export const LearnMore = ({ car }) => {
   const town = car.address ? car.address.split(',')[1].trim() : '';
@@ -40,6 +41,9 @@ export const LearnMore = ({ car }) => {
         src={car.img || 'https://demofree.sirv.com/nope-not-here.jpg'}
         alt={car.model}
         className=" rounded-lg object-cover mb-[14px] w-[470px] h-[315px]"
+        onError={e => {
+          e.currentTarget.src = logo;
+        }}
       />
       <div className="w-[460px] ">
         <div className="mb-[24px]">
