@@ -23,7 +23,6 @@ const Home = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="flex flex-col gap-[20px] justify-center items-center">
-            {/* <h1 className="text-4xl font-bold text-center mt-8">Car Rental</h1> */}
             <div className="w-[1000px] ">
               <Slider cars={cars} />
             </div>
