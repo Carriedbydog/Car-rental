@@ -41,7 +41,7 @@ const Home = () => {
                 You can see more of our cars in our catalog
               </h2>
               <button className="btn btn-primary">
-                <NavLink to="/catalog">Get Started</NavLink>
+                <NavLink to="/catalog">Catalog</NavLink>
               </button>
             </div>
           </div>

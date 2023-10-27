@@ -105,9 +105,13 @@ export const LearnMore = ({ car }) => {
             </p>
           </div>
         </div>
-        <button className="flex justify-center items-center  rounded-[12px] py-[14px] px-[50px] bg-blue-600 text-white font-medium text-lg hover:bg-blue-800 transition-colors text-[14px]">
-          <a href="tel:+380730000000">Rental car</a>
-        </button>
+
+        <a
+          className="  rounded-[12px] py-[14px] px-[50px] bg-blue-600 text-white font-medium text-lg hover:bg-blue-800 transition-colors text-[14px]"
+          href="tel:+380730000000"
+        >
+          Rental car
+        </a>
       </div>
     </>
   );
