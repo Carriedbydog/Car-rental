@@ -4,6 +4,7 @@ import { useModal } from 'hooks/useModal';
 import { Heart } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/carRental/selectors';
+import logo from '../../images/logo.png';
 
 const CarItem = ({ car, handleAddToFav }) => {
   const favoriteCars = useSelector(selectFavorites);
@@ -14,8 +15,12 @@ const CarItem = ({ car, handleAddToFav }) => {
   return (
     <li className="relative max-w-[275px] h-[440px] shadow-md rounded-lg flex flex-col">
       <img
-        src={car.img ? car.img : 'https://demofree.sirv.com/nope-not-here.jpg'}
+        // src={car.img === 'Status Code:401' ? logo : car.img}
+        src={car.img}
         alt={car.model}
+        onError={e => {
+          e.currentTarget.src = logo;
+        }}
         className=" rounded-lg object-cover mb-[14px] h-[280px] transition-transform duration-1000 hover:scale-110 "
       />
       <button

@@ -12,7 +12,7 @@ const FavoritesCars = () => {
   };
 
   return (
-    <div className="mt-16 mx-4 md:mx-auto max-w-[calc(100vw-12rem)] min-h-screen">
+    <div className="mt-16 mx-4 md:mx-auto max-w-[calc(100vw-12rem)] min-h-screen pb-[20px]">
       <h1 className="rounded-[32px] py-[7px] px-[14px] bg-slate-50 mb-[20px] text-center font-bold text-slate-700">
         Favorite Cars
       </h1>
