@@ -31,9 +31,8 @@ export const LearnMore = ({ car }) => {
       );
     }
   });
-  const carMileage = car.mileage
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+  const carMileage = car.mileage.toLocaleString('en-US');
 
   return (
     <>

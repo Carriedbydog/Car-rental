@@ -27,11 +27,15 @@ export const fetchFilteredCarsThunk = createAsyncThunk(
 
       if (make) {
         carsArr = carsArr.filter(car => car.make === make);
+        toast.success(`Found ${carsArr.length} cars`);
       }
 
       if (price) {
         carsArr = carsArr.filter(
           car => Number(car.rentalPrice.slice(1)) <= Number(price)
+        );
+        toast.success(
+          `Found ${carsArr.length} cars with price less than ${price}`
         );
       }
 

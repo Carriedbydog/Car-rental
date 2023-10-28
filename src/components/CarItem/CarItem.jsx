@@ -34,7 +34,6 @@ const CarItem = ({ car, handleAddToFav }) => {
         <Heart
           size={20}
           fill={isFav ? '#3470FF' : 'none'}
-          // color={isFav ? '#3470FF' : 'white'}
           color={imgLoadError ? 'black' : isFav ? '#3470FF' : 'white'}
         />
       </button>

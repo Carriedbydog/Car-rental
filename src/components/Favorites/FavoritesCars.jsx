@@ -1,6 +1,7 @@
 import CarItem from 'components/CarItem/CarItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { selectFavorites } from 'redux/carRental/selectors';
 import { deleteFromFav } from 'redux/carRental/slice';
 
@@ -10,6 +11,7 @@ const FavoritesCars = () => {
 
   const handleDeleteFromFav = id => {
     dispatch(deleteFromFav(id));
+    toast.info('Car was deleted from favorites');
   };
 
   return (

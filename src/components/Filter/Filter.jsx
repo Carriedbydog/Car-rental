@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { toast } from 'react-toastify';
 import { fetchFilteredCarsThunk } from 'redux/carRental/operations';
 
-const Filter = () => {
+const Filter = ({ setIsFilter }) => {
   const [selectedCar, setSelectedCar] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [mileageFrom, setMileageFrom] = useState('');
@@ -58,6 +58,7 @@ const Filter = () => {
         mileageTo: mileageTo,
       };
 
+      setIsFilter(true);
       dispatch(fetchFilteredCarsThunk(filters));
     } else {
       toast.error('No cars found');

@@ -5,7 +5,7 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: { colors: { mainColor: '#3470FF' } },
   },
   plugins: [require('daisyui'), [require('flowbite/plugin')]],
   daisyui: {

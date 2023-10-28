@@ -1,8 +1,10 @@
 import CarItem from 'components/CarItem/CarItem';
 import Filter from 'components/Filter/Filter';
+import { Loader } from 'components/Loader/Loader';
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import {
   fetchCarsThunk,
   fetchFilteredCarsThunk,
@@ -37,35 +39,27 @@ const CarList = () => {
       dispatch(loadMoreThunk(newPage));
     } else {
       const loadNewData = { ...criteria, page: newPage };
-      dispatch(fetchFilteredCarsThunk(loadNewData)).then(res => {
-        const newCars = res.payload.carsArr.filter(newCar => {
-          return !cars.some(existingCar => existingCar.id === newCar.id);
-        });
-
-        if (newCars.length > 0) {
-          dispatch({
-            type: fetchFilteredCarsThunk.fulfilled,
-            payload: {
-              criteria: res.payload.criteria,
-              carsArr: newCars,
-            },
-          });
-        }
-      });
+      dispatch(fetchFilteredCarsThunk(loadNewData));
     }
   };
 
   const handleAddToFav = (id, isInFav) => {
-    !isInFav ? dispatch(addtoFav(id)) : dispatch(deleteFromFav(id));
+    if (!isInFav) {
+      dispatch(addtoFav(id));
+      toast.success('Car added to favorites');
+    } else {
+      dispatch(deleteFromFav(id));
+      toast.success('Car removed from favorites');
+    }
   };
 
   return (
     <div className="flex flex-col justify-center al m-auto p-[30px] min-h-screen">
       <div className="mt-16 mx-4 md:mx-auto max-w-[calc(100vw-12rem)] mb-[100px]">
-        {loading && <h1 className="text-2xl">Loading...</h1>}
         {error && <h1 className="text-2xl">Something went wrong...😢</h1>}
         <Filter setIsFilter={setIsFilter} />
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {loading && <Loader />}
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
           {cars?.map(car => (
             <CarItem key={car.id} car={car} handleAddToFav={handleAddToFav} />
           ))}
@@ -74,7 +68,7 @@ const CarList = () => {
       <div className="flex justify-center pb-[100px]">
         {cars?.length % 12 === 0 &&
           cars?.length !== 0 &&
-          cars?.length !== 35 && (
+          cars?.length !== 32 && (
             <button
               className="w-20 h-10 text-blue-600"
               onClick={handleBtnLoadMore}

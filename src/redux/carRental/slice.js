@@ -10,7 +10,6 @@ const initialState = {
   loading: false,
   error: null,
   favorites: [],
-  filter: [],
   criteria: {},
 };
 
@@ -58,5 +57,5 @@ export const slice = createSlice({
   },
 });
 
-export const { addtoFav, deleteFromFav } = slice.actions;
+export const { addtoFav, deleteFromFav, updateFilterCars } = slice.actions;
 export const carsReducer = slice.reducer;
