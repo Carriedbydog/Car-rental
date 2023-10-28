@@ -1,4 +1,6 @@
-# RENTIFY - Car-rental service(https://carriedbydog.github.io/Car-rental/)
+# RENTIFY - Car-rental service
+
+(https://carriedbydog.github.io/Car-rental/)
 
 ## Цей проект був створений за допомогою Create React App. Під час розробки проекту
 
