@@ -5,21 +5,26 @@ import { Heart } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/carRental/selectors';
 import logo from '../../images/logo.png';
+import { useState } from 'react';
 
 const CarItem = ({ car, handleAddToFav }) => {
   const favoriteCars = useSelector(selectFavorites);
   const { open, close, isOpen } = useModal();
+  const [imgLoadError, setImgLoadError] = useState(false);
   const town = car.address ? car.address.split(',')[1].trim() : '';
   const isFav = favoriteCars.some(fav => fav.id === car.id);
+
+  const handleImgError = e => {
+    e.currentTarget.src = logo;
+    setImgLoadError(true);
+  };
 
   return (
     <li className="relative  shadow-md rounded-lg flex flex-col justify-between">
       <img
         src={car.img}
         alt={car.model}
-        onError={e => {
-          e.currentTarget.src = logo;
-        }}
+        onError={handleImgError}
         className=" rounded-lg object-cover mb-[14px] min-h-[270px] transition-transform duration-1000 hover:scale-105 "
       />
       <button
@@ -29,7 +34,8 @@ const CarItem = ({ car, handleAddToFav }) => {
         <Heart
           size={20}
           fill={isFav ? '#3470FF' : 'none'}
-          color={isFav ? '#3470FF' : 'white'}
+          // color={isFav ? '#3470FF' : 'white'}
+          color={imgLoadError ? 'black' : isFav ? '#3470FF' : 'white'}
         />
       </button>
       <div className="p-5 ">

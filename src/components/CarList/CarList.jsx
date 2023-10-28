@@ -32,11 +32,27 @@ const CarList = () => {
   const handleBtnLoadMore = () => {
     const newPage = page + 1;
     setPage(newPage);
+
     if (!isFilter) {
       dispatch(loadMoreThunk(newPage));
+    } else {
+      const loadNewData = { ...criteria, page: newPage };
+      dispatch(fetchFilteredCarsThunk(loadNewData)).then(res => {
+        const newCars = res.payload.carsArr.filter(newCar => {
+          return !cars.some(existingCar => existingCar.id === newCar.id);
+        });
+
+        if (newCars.length > 0) {
+          dispatch({
+            type: fetchFilteredCarsThunk.fulfilled,
+            payload: {
+              criteria: res.payload.criteria,
+              carsArr: newCars,
+            },
+          });
+        }
+      });
     }
-    const LoadNewData = { ...criteria, page: newPage };
-    dispatch(fetchFilteredCarsThunk(LoadNewData));
   };
 
   const handleAddToFav = (id, isInFav) => {
