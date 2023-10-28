@@ -1,11 +1,10 @@
-RENTIFY - Car-rental service
+# RENTIFY - Car-rental service(https://carriedbydog.github.io/Car-rental/)
 
-# This project was created using [Create React App].
-
-During the project's development, the following libraries were utilized:
+This project was created using [Create React App]. During the project's
+development, the following libraries were utilized:
 
 1. For styling: Toastify, Tailwind, daisyUI, Swiper, Lucide-react, React-icons,
-   Reac-loader-spinner.
+   React-loader-spinner.
 2. For database operations: Axios, Redux Toolkit.
 3. The back-end was created using the mockApi service (https://mockapi.io).
 

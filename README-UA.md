@@ -1,9 +1,11 @@
-Цей проект був створений за допомогою Create React App.
+# RENTIFY - Car-rental service(https://carriedbydog.github.io/Car-rental/)
 
-Під час розробки проекту були використані такі бібліотеки:
+## Цей проект був створений за допомогою Create React App. Під час розробки проекту
+
+були використані такі бібліотеки:
 
 1. Для стилізації: Toastify, Tailwind, daisyUI, Swiper, Lucide-react,
-   React-icons,Reac-loader-spinner.
+   React-icons,React-loader-spinner.
 2. Для операцій з базою даних: Axios, Redux Toolkit.
 3. Бек-енд був створений за допомогою сервісу mockApi (https://mockapi.io).
 
