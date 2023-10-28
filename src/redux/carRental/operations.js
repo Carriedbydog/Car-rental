@@ -50,10 +50,12 @@ export const fetchFilteredCarsThunk = createAsyncThunk(
         carsArr = carsArr.filter(
           car => Number(car.mileage) >= Number(mileageFrom)
         );
+        toast.success(`Found ${carsArr.length} cars`);
       } else if (mileageTo) {
         carsArr = carsArr.filter(
           car => Number(car.mileage) <= Number(mileageTo)
         );
+        toast.success(`Found ${carsArr.length} cars`);
       }
 
       if (page && carsArr.length > 12) {

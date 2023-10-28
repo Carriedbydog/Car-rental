@@ -4,7 +4,8 @@ RENTIFY - Car-rental service
 
 During the project's development, the following libraries were utilized:
 
-1. For styling: Toastify, Tailwind, daisyUI, Swiper, Lucide-react, React-icons.
+1. For styling: Toastify, Tailwind, daisyUI, Swiper, Lucide-react, React-icons,
+   Reac-loader-spinner.
 2. For database operations: Axios, Redux Toolkit.
 3. The back-end was created using the mockApi service (https://mockapi.io).
 
