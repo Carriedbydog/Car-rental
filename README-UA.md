@@ -2,9 +2,9 @@
 
 (https://carriedbydog.github.io/Car-rental/)
 
-## Цей проект був створений за допомогою Create React App. Під час розробки проекту
+Цей проект був створений за допомогою Create React App.
 
-були використані такі бібліотеки:
+Під час розробки проекту були використані такі бібліотеки:
 
 1. Для стилізації: Toastify, Tailwind, daisyUI, Swiper, Lucide-react,
    React-icons,React-loader-spinner.

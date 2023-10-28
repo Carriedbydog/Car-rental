@@ -2,8 +2,9 @@
 
 (https://carriedbydog.github.io/Car-rental/)
 
-This project was created using [Create React App]. During the project's
-development, the following libraries were utilized:
+This project was created using [Create React App].
+
+During the project's development, the following libraries were utilized:
 
 1. For styling: Toastify, Tailwind, daisyUI, Swiper, Lucide-react, React-icons,
    React-loader-spinner.
