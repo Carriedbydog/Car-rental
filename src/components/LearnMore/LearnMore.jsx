@@ -39,14 +39,14 @@ export const LearnMore = ({ car }) => {
       <img
         src={car.img || 'https://demofree.sirv.com/nope-not-here.jpg'}
         alt={car.model}
-        className=" rounded-lg object-cover mb-[14px] w-[470px] h-[315px]"
+        className=" rounded-lg object-cover mb-[14px] w-full md:w-[470px] h-[315px]"
         onError={e => {
           e.currentTarget.src = logo;
         }}
       />
-      <div className="w-[460px] ">
+      <div className="w-[320px] md:w-[460px] p-[20px] md:p-0">
         <div className="mb-[24px]">
-          <div className="w-[277px] mb-[14px]">
+          <div className="w-[264px] md:w-[277px] mb-[14px]">
             <div className="flex justify-between items-baseline mb-[8px]">
               <h3 className="font-semibold text-[18px] text-gray-900 leading-[24px]">
                 {car.make} <span className="text-blue-700">{car.model},</span>{' '}

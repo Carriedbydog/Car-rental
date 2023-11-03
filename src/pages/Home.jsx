@@ -21,12 +21,12 @@ const Home = () => {
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
+        <div className="hero-content text-center text-neutral-content w-[320px] md:w-auto ">
           <div className="flex flex-col gap-[20px] justify-center items-center">
-            <div className="w-[1000px] ">
+            <div className="w-[320px] md:w-[1000px] ">
               <Slider cars={cars} />
             </div>
-            <div className="max-w-md">
+            <div className="max-w-md px-[10px] md:px-0">
               <h1 className="mb-5 text-5xl font-bold text-slate-200">
                 Welcome to the RENTIFY
               </h1>

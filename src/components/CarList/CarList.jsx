@@ -54,10 +54,10 @@ const CarList = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center al m-auto p-[30px] min-h-screen">
-      <div className="mt-16 mx-4 md:mx-auto max-w-[calc(100vw-12rem)] mb-[100px]">
-        {error && <h1 className="text-2xl">Something went wrong...😢</h1>}
+    <div className="flex flex-col justify-center al m-auto p-0 md:p-[20px] min-h-screen">
+      <div className="mt-16 mx-4 md:mx-auto mb-[100px]">
         <Filter setIsFilter={setIsFilter} />
+        {error && <h1 className="text-2xl">Something went wrong...😢</h1>}
         {loading && <Loader />}
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
           {cars?.map(car => (

@@ -80,9 +80,9 @@ const Filter = ({ setIsFilter }) => {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="flex justify-center items-end gap-[18px] mb-[50px]"
+      className="block md:flex flex-row md:justify-center items-end gap-[15px] md:gap-[18px] mb-[50px]"
     >
-      <div className="w-[224px] rounded-[14px]">
+      <div className="w-[180px] md:w-[224px] rounded-[14px] mb-[10px] md:mb-0">
         <label className="label">
           <span className="label-text">Car brand</span>
         </label>
@@ -95,7 +95,7 @@ const Filter = ({ setIsFilter }) => {
           isClearable={true}
         />
       </div>
-      <div className="max-w-[125px] w-full">
+      <div className="max-w-[125px] w-full mb-[10px] md:mb-0">
         <label className="label">
           <span className="label-text">Price/ 1 hour</span>
         </label>
@@ -112,24 +112,24 @@ const Filter = ({ setIsFilter }) => {
         <label className="label">
           <span className="label-text">Car mileage/ km</span>
         </label>
-        <div className="flex">
+        <div className="flex mb-4 md:mb-0">
           <input
             value={mileageFrom}
-            className="w-[160px] h-12 bg-slate-50 border-r-[1px] border-border rounded-l-[14px] px-[20px]"
+            className="w-[100px] md:w-[160px] h-12 bg-slate-50 border-r-[1px] border-border rounded-l-[14px] px-[20px]"
             type="number"
             placeholder="From"
             onChange={e => setMileageFrom(e.target.value)}
           />
           <input
             value={mileageTo}
-            className="w-[160px] bg-slate-50 h-12 rounded-r-[14px] px-[20px]"
+            className="w-[100px] md:w-[160px] bg-slate-50 h-12 rounded-r-[14px] px-[20px] "
             type="number"
             placeholder="To"
             onChange={e => setMileageTo(e.target.value)}
           />
         </div>
       </div>
-      <button className="flex justify-center items-center w-[136px] h-[48px] rounded-[12px] py-[14px] px-[44px] bg-blue-600 text-white font-medium text-lg hover:bg-blue-800 transition-colors text-[14px]">
+      <button className="flex justify-center items-center w-[136px] h-[48px] rounded-[12px] py-[14px] px-[44px] bg-blue-600 text-white font-medium text-lg hover:bg-blue-800 transition-colors text-[14px] ">
         Search
       </button>
     </form>

@@ -28,7 +28,7 @@ export const UptoTopBtn = () => {
   }, []);
 
   return (
-    <button className="flex justify-center items-center fixed py-4 px-1 opacity-1 bottom-10 right-6 h-[20px] font-normal z-100 cursor-pointer transition-transform duration-1000 ">
+    <button className="flex justify-center items-center fixed py-4 px-1 opacity-1 bottom-10 right-1 md:right-0 h-[20px] font-normal z-100 cursor-pointer transition-transform duration-1000 ">
       <ArrowUp
         size={32}
         color="#0f0f0f"

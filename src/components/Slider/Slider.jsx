@@ -26,7 +26,7 @@ const Slider = ({ cars }) => {
         delay: 3000,
         disableOnInteraction: false,
       }}
-      className="w-[400px] h-[250px] rounded-[20px]"
+      className="w-[300px] md:w-[400px] h-[250px] rounded-[20px]"
     >
       {cars.map((car, index) => (
         <SwiperSlide key={index}>
