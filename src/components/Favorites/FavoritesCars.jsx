@@ -15,12 +15,12 @@ const FavoritesCars = () => {
   };
 
   return (
-    <div className="mt-16 mx-4 md:mx-auto min-h-screen pb-[20px]">
+    <div className="mt-16 mx-4 md:mx-auto min-h-screen pb-[20px] p-0 md:p-[20px]">
       <h1 className="rounded-[32px] py-[7px] px-[14px] bg-slate-50 mb-[20px] text-center font-bold text-slate-700">
         Favorite Cars
       </h1>
       {favoriteCars.length !== 0 ? (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
           {favoriteCars?.map(car => {
             return (
               <CarItem

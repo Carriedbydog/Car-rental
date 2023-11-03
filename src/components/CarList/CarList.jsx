@@ -59,7 +59,7 @@ const CarList = () => {
         <Filter setIsFilter={setIsFilter} />
         {error && <h1 className="text-2xl">Something went wrong...😢</h1>}
         {loading && <Loader />}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
           {cars?.map(car => (
             <CarItem key={car.id} car={car} handleAddToFav={handleAddToFav} />
           ))}

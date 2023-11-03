@@ -82,7 +82,7 @@ const Filter = ({ setIsFilter }) => {
       onSubmit={handleFormSubmit}
       className="block md:flex flex-row md:justify-center items-end gap-[15px] md:gap-[18px] mb-[50px]"
     >
-      <div className="w-[180px] md:w-[224px] rounded-[14px] mb-[10px] md:mb-0">
+      <div className="w-[180px] md:w-[250px] lg:w-[224px] rounded-[14px] mb-[10px] md:mb-0">
         <label className="label">
           <span className="label-text">Car brand</span>
         </label>
@@ -115,14 +115,14 @@ const Filter = ({ setIsFilter }) => {
         <div className="flex mb-4 md:mb-0">
           <input
             value={mileageFrom}
-            className="w-[100px] md:w-[160px] h-12 bg-slate-50 border-r-[1px] border-border rounded-l-[14px] px-[20px]"
+            className="w-[100px] md:w-[100px] lg:w-[160px] h-12 bg-slate-50 border-r-[1px] border-border rounded-l-[14px] px-[20px]"
             type="number"
             placeholder="From"
             onChange={e => setMileageFrom(e.target.value)}
           />
           <input
             value={mileageTo}
-            className="w-[100px] md:w-[160px] bg-slate-50 h-12 rounded-r-[14px] px-[20px] "
+            className="w-[100px] md:w-[100px] lg:w-[160px] bg-slate-50 h-12 rounded-r-[14px] px-[20px] "
             type="number"
             placeholder="To"
             onChange={e => setMileageTo(e.target.value)}

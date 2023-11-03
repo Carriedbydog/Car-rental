@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="drawer-content">
           <label
             htmlFor="my-drawer"
-            className="btn btn-blue drawer-button transition-transform duration-300"
+            className="btn btn-primary drawer-button transition-transform duration-300"
             style={{
               transform: `translateX(${sidebarOpen ? '240px' : '0'})`,
             }}
